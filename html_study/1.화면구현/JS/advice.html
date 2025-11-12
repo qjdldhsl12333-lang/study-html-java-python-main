@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn" onclick="getAdvice()"> 명언가져오기</button>
+    <p id="advice"></p>
+    <script>
+        // 클릭했을 때의 기능
+        function getAdvice(){
+            // 명언 API에서 명언을 가져와 표시합니다
+            fetch('https://api.adviceslip.com/advice')
+            .then (res=>{
+                if(!res.ok){ //요청이 잘 됐으면 trul / false
+                throw new Error("데이터 불러오기 실패")
+                }
+                return res.json(); //얻어온 결과를 json으로 변환
+            })
+            .then(data=>{ //.then .catch등 맨앞에 나와있는 것을 체인 메서드라고 한다.
+                //p태그에 명언을 추출후 넣는다
+                document.querySelector("#advice").innerText= data.slip.advice;
+            })
+        
+        .catch(err =>{
+            console.error("에러",err);
+            alert("명언을 가져오는데 실패했습니다")
+
+        })
+        }
+    </script>
+    
+</body>
+</html>

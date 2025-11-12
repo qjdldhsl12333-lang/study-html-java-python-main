@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>미디어 쿼리 실습 문제</title>
+  <style>
+    /* 여기에 코드를 작성하세요 */
+    .container{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+    }
+    .card{
+        background: #3498db;
+        color: white;
+        padding: 40px;
+        text-align: center;
+        flex: 1;
+        /* 브라우저의 너비가 최소768px를 넘으면 
+        row */
+    }
+    @media(min-width : 768px){
+        .container{flex-direction: row;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card"> 박스1</div>
+    <div class="card"> 박스2</div>
+  </div>
+</body>
+</html>

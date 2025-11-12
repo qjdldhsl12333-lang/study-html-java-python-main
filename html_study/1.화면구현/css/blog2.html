@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 블로그 레이아웃</title>
+    <style>
+        body{
+            margin: 0;
+            background: #f5f6fa;
+            color: black;
+        }
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
+        header{
+            background: #111827;
+            color: #fff;
+            padding: 16px;
+        }
+        .bland{
+            font-weight: 700;
+        }
+        nav{
+            margin-top: 8px;
+        }
+        .nav-list{
+            display: flex;
+            gap: 12px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .container{
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 15px;
+
+        }
+        /* 기본 스타일이 모바일 기반 */
+        .layout{
+            display: flex;
+            flex-direction: column;
+            gap : 16px;
+        }
+        main{
+            padding: 8px;
+        }
+        aside {
+            background: #fff;
+            border: 1px solid #e5e7e5 ;
+            border-radius: 15px;
+            padding: 16px;
+        }
+        /* 카드 목록& 카드 */
+        .posts{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12;
+        }
+        .card{
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            flex: 1 1 100%;
+        }
+        /* 썸네일 */
+        .thumb{
+            /* 부모영역의 너비를 100%로 채운다. */
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        display: block;
+        }    
+        .content{
+            padding: 12px 14px;
+        }
+        .title{
+            font-size: 18px;
+            margin: 6px 0 8px;
+
+        }
+        meta{
+            font-size: 12px;
+            color: #6b7280 ;
+        }
+        nav{
+            display: none;
+        }
+        @media(min-width : 768px){
+            nav{
+                display: block;
+            }
+            .layout{
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+
+            main{
+                flex : 1 1 auto;
+
+            }
+            aside{
+                flex : 0 0 260px;
+            }
+            /* calc() 연산함수
+            %는 부모의 크기를 기준으로 계산되고, px절대값이다
+            calc()는 이 둘을 합산해 죄종 길이로 만든다.
+            카드 2열 : 각 카드가 50%- gap의 일부*/
+            .card {
+                flex: 1 1 calc(50% - 12px);
+            }
+            .title{
+                font-size: 20px;
+            }
+        }
+        @media(min-width : 1024px){
+                header{
+                    position: sticky;
+                    top: 0;
+
+                }
+
+                .card{
+                    flex: 1 1 calc(33.333% - 12px);
+                }
+            
+            .title{
+                font-size: 22px;
+            }
+        }
+        
+        </style>
+</head>
+<body>
+    <header>
+      <div class="container">
+        <div class="brand">My Blog</div>
+        <nav>
+            <ul class="nav-list">
+            <li><a href="#"></a>홈</li>
+            <li><a href="#"></a>카테고리</li>
+            <li><a href="#"></a>태그</li>
+            <li><a href="#"></a>정보</li>
+            </ul>
+        </nav>
+    </div>  
+    </header>
+    <div class="container layout">
+        <main>
+            <!-- 포스트영역 -->
+            <section class="posts">
+             <article class="card">
+                <img class="thumb" src="https://picsum.photos/800/450?1" alt="썸네일 설명">
+                <div class="content">
+                <h3 class="title">포스트 제목1</h3>
+                <p class="meta">2025-11-04· 카테고리</p>
+                <p>게시글 요약 내용</p>
+         </article>
+         <article class="card">
+                <img class="thumb" src="https://picsum.photos/800/450?1" alt="썸네일 설명">
+                <div class="content">
+                <h3 class="title">포스트 제목1</h3>
+                <p class="meta">2025-11-04· 카테고리</p>
+                <p>게시글 요약 내용</p>
+         </article>
+         <article class="card">
+                <img class="thumb" src="https://picsum.photos/800/450?1" alt="썸네일 설명">
+                <div class="content">
+                <h3 class="title">포스트 제목1</h3>
+                <p class="meta">2025-11-04· 카테고리</p>
+                <p>게시글 요약 내용</p>
+         </article>
+        </section>
+    </main>
+        <aside>
+            <h4>사이드바</h4>
+            <ul>
+                <li>인기 글</li>
+                <li>최근 댓글</li>
+                <li>카테고리</li>
+            </ul>
+        </aside> 
+    </div>
+</body>
+</html>

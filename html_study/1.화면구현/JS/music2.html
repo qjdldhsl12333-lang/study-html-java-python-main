@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<body>
+  <h2>🎵 음악 검색 (iTunes API)</h2>
+
+  <input id="search" placeholder="검색어 입력 (예: BTS)">
+  <button id="btn">검색</button>
+  <ul id="result"></ul>
+ </body>
+ <script>
+    let btn = document.querySelector("#btn");
+    
+    let list = document.querySelector("#result");
+
+    //버튼에 클릭 이벤트가 발생했을 때
+    btn.addEventListener("click", () => {
+        //input태그에 적힌 내용을 가져온다.
+        let keyword = document.querySelector("#search").value; //body에 있는 id를 매개변수에 넣는다 id=>keword가 script안에서 되는것
+        // (`https://itunes.apple.com/search?  <이쪽까지 주소 ||| 쿼리스트링(요청변수는 API 제공받는곳에 있다.) :%로 이어진다. > term=${keyword}&entity=song&limit=5`)
+        
+        //아이튠즈 api에 키워드에 대한 내용조회를 요청한다.
+        fetch(`https://itunes.apple.com/search?term=${keyword}&entity=song&limit=5`)
+            .then(res => {
+                if(!res.ok){
+                    throw new Error("검색 실패");
+                }
+                return res.json();
+            })
+            .then(data => {
+                //가져온 데이터가 있다면 map을 통해서 노래 - 가수 형식으로 만들어서 배열로 저장
+                //join()을 통해서 하나의 문자열로 만든다
+                const arr = data.results.length ?
+                    data.results.map(item => //map 안에 item은 매게변수 즉,꼭 item이 아니여도된다 x등등 자유롭게 이름이 설정가능
+                        `<li>${item.trackName} - ${item.artistName}</li>` //API를 이용할때 API안에 설정되어있는 매게변수명을 입력히여 호출
+                    ).join("") : "<li>검색 결과 없음</li>"
+                
+                //얻어온 결과를 <ul>에 넣는다.
+                list.innerHTML = arr; //innerText는 
+            })
+            .catch(err =>{
+                console.error("에러:",err);
+                alert("검색 중 문제가 발생했습니다.");
+            });
+    })
+ </script>
+</html>

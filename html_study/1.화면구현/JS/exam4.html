@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let even = 0;
+        let odd = 0;
+        for (let i = 1; i < 28; i++) {
+            if (i % 2 === 0) {
+                even++;
+            } else {
+                odd++;
+            }
+        }
+        console.log(`짝수 : ${even}개, 홀수 : ${odd}개`);
+
+        let dan = 3; //초기값
+        //  let i = 1 i의값을 설정 ;i <= 9; i++ i값이 9가될때까지 계산을 반복한다.
+        for (let i = 1; i <= 9; i++) {
+            if (i % 2 === 0) continue;
+            console.log(`${dan} x ${i} = ${dan * i}`);
+        }
+
+        let x = 1;
+        while (x < 10) {
+            x++;
+            if (x % 2 === 0) {
+                continue;
+            }
+            console.log(`3 x ${x} = ${3 * x}`)
+
+          
+        }
+           
+            let sum = 0; //합계를 담을 변수
+            let count = 0; //갯수를 담을 변수
+        for (let i = 1; i < 45; i++) {
+            if (i % 3 === 0) {
+                continue;
+            }
+            sum += i; //sum = sum +i; sum =0+1
+            //                          sum =1+2
+            //                          sum =3+4
+            //                          ....
+            count++;
+
+        }
+        console.log(`총합 : ${sum}`)
+        console.log(`평균 : ${sum/count}`)
+       
+    //    12340을 4321로 만들어라
+        let num = 12340;
+        let reversed = 0;
+            while(num > 0){//조건에 0
+            let digit = num % 10; //나머지(마지막 자리)
+            reversed = reversed*10 + digit;
+            num = parseInt(num / 10);
+        }
+        console.log(`뒤집은 숫자 : ${reversed}`);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

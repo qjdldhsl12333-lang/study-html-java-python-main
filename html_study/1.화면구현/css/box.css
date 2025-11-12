@@ -1,0 +1,40 @@
+.box{
+    width: 100px;
+    /* height: 100px; */
+    color: white;
+    text-align: center;
+    border: 2px solid black;
+    margin: 10px;
+}
+section{
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px dashed #000;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+.a{
+    background: #eee;
+}
+
+.b{
+    background: aquamarine;
+}
+
+.c{
+    background: #343434;
+}
+
+.d{
+    background: thistle;
+}
+
+.e{
+    background: teal;
+}
+
+.f{
+    background: tan;
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>시맨틱 Flex 카드 레이아웃</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    background: #ddd;
+    color: #2c3e50;
+  }
+
+  /* 🔹 전체 페이지를 감싸는 컨테이너 */
+  .container {
+    max-width: 1200px;  /* 전체 폭 제한 */
+    margin: 10px auto;     /* 화면 가운데 정렬 */
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    height : 50vh;
+    padding : 20px;
+  }
+
+  header, main, footer {
+    padding: 16px;
+  }
+
+  header {
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+  }
+
+  footer {
+    background: #ffffff;
+    border-top: 1px solid #ddd;
+    text-align: center;
+  }
+
+  nav a {
+    color: #3498db;
+    text-decoration: none;
+    margin-right: 12px;
+  }
+
+  .page-title {
+    margin: 8px 0 0;
+  }
+
+  /* 🔹 Flex 부모 */
+  .grid {
+    display: flex; /* 자식들이 가로로 나열된다 */
+  }
+
+  /* 🔹 카드 */
+  .card {
+    width: 33.333%;  /* 3열 */
+    padding: 12px;
+  }
+
+  article {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  .title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 12px 0 6px;
+  }
+
+  .desc {
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 12px;
+  }
+
+  .btn {
+    display: inline-block;
+    background: #3498db;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+  <!-- ✅ 모든 콘텐츠를 감싸는 컨테이너 -->
+  <div class="container">
+
+    <header>
+      <h1 class="page-title">스토어</h1>
+      <nav aria-label="주요 메뉴">
+        <a href="#">홈</a>
+        <a href="#">상품</a>
+        <a href="#">문의</a>
+      </nav>
+    </header>
+
+    <main>
+      <section aria-labelledby="product-heading">
+        <h2 id="product-heading">상품 목록</h2>
+
+        <div class="grid" role="list">
+          <div class="card" role="listitem">
+            <article>
+              <img src="https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/2b69/5b9b9b2438f207f1b920d9e9a7175228cd3f37fd30e5b4f025d76bace127.png" alt="무선 키보드 이미지">
+              <h3 class="title">무선 키보드</h3>
+              <p class="desc">저소음 키감과 편리한 연결을 지원한다</p>
+              <a href="#" class="btn">자세히 보기</a>
+            </article>
+          </div>
+
+          <div class="card" role="listitem">
+            <article>
+              <img src="https://gdimg.gmarket.co.kr/1635381126/still/400?ver=1686562862" alt="인체공학 마우스 이미지">
+              <h3 class="title">인체공학 마우스</h3>
+              <p class="desc">손목 부담을 줄이는 인체공학 디자인이다</p>
+              <a href="#" class="btn">자세히 보기</a>
+            </article>
+          </div>
+
+          <div class="card" role="listitem">
+            <article>
+              <img src="https://img.danawa.com/prod_img/500000/809/154/img/17154809_1.jpg?_v=20241120165601&shrink=360:360" alt="노트북 거치대 이미지">
+              <h3 class="title">노트북 거치대</h3>
+              <p class="desc">높이 조절로 자세를 개선하고 발열을 줄인다</p>
+              <a href="#" class="btn">자세히 보기</a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <small>&copy; 2025 MyStore. 모든 권리 보유.</small>
+    </footer>
+
+  </div>
+</body>
+</html>

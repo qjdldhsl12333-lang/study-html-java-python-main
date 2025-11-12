@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 슬라이드</title>
+    <link rel ="imagefiles" href="/images">
+    <style>
+       
+        
+        #imagefiles{
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="galleryWrap">
+        <p>
+            <button id ="prevBtn"><</button>
+            <img id ="imagefiles" src="/images/dog1.jpg" alt ="이미지 슬라이드">
+            <button id="nextBtn">></button>
+        </p>
+
+    </div>
+    <script>
+        
+        let imagefiles = document.getElementById("imagefiles");
+        let prevBtn = document.getElementById("prevBtn");
+        let nextBtn = document.getElementById("nextBtn");
+        let currentIndex = 1;
+        const totalImages = 7; // 이미지 총 개수
+        prevBtn.addEventListener("click", function(){ //이전버튼 
+            currentIndex--;
+            if(currentIndex < 1){
+                currentIndex = totalImages;
+            }
+            imagefiles.src = "/images/dog" + currentIndex + ".jpg";
+        });
+        nextBtn.addEventListener("click", function(){ //다음버튼
+            currentIndex++;
+            if(currentIndex > totalImages){
+                currentIndex = 1;
+            }
+            imagefiles.src = "/images/dog" + currentIndex + ".jpg";
+        });
+        setInterval(function(){ //자동 슬라이드
+            currentIndex++;
+            if(currentIndex > totalImages){
+                currentIndex = 1;
+            }
+            imagefiles.src = "/images/dog" + currentIndex + ".jpg";
+        }, 2000);
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 부모 요소에 display : flex를 주게 되면 자식 요소들이
+        좌에서 우로 배치된다. */
+        .container{
+            display: flex;
+            align-items: flex-start;
+        }
+        /* 배경색
+        글씨색, 안쪽여백 10px
+        글씨 가운데 정렬, 테두리 둥글게 */
+        .box{
+            width: 150px;
+            background: aqua;
+            color: black;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 20px;
+        }
+        /* 내용이 많으면 넘친다. 높이가 고정 */
+        .fixed{
+            height: 100px;
+        }
+        .min{
+            min-height: 10px;
+        }
+        /* overflow : hidden 넘치면 가림,
+        auto 넘치면 스크롤 만들어줌*/
+        .max{
+            max-height: 100px;
+            overflow: auto;
+        }
+        .auto{
+            height: auto;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <h1>height속성 실습</h1>
+    <div class="container">
+        <div class="box fixed">괐아갈 초디에 헬밤은 진과 가은규다 기투다 응가하기다. 잇에해어 퍼스다 다바볼붐으로 오유롱고 츤뤵선눌어 조저잫오애피는, 작머흣이라 안뜨니가는 임덕허이돈의 느시드단도. 으미가남드자두다 공바똘더에 미앵해랑으로 웅워어 기기호자, 득즐갬의 윤미브놌큭애다 윽존 리기조차.</div>
+        <div class="box min">괐아갈 으로 오유롱고 츤뤵선덕허이돈리기조차.</div>
+        <div class="box max">괐아갈 초디에 헬밤은 진과 가은규다 기투다 응가하기다. 잇에해어 퍼스다 다바볼붐으로 오유롱고 츤뤵선눌어 조저잫오애피는, 작머흣이라 안뜨니가는 임덕허이돈의 느시드단도. 으미가남드자두다 공바똘더에 미앵해랑으로 웅워어 기기호자, 득즐갬의 윤미브놌큭애다 윽존 리기조차.</div>
+        <div class="box auto">괐아갈 초디에 헬밤은 진과 가은규다 기투다 응가하기다. 잇에해어 퍼스다 다바볼붐으로 오유롱고 츤뤵선눌어 조저잫오애피는, 작머흣이라 안뜨니가는 임덕허이돈의 느시드단도. 으미가남드자두다 공바똘더에 미앵해랑으로 웅워어 기기호자, 득즐갬의 윤미브놌큭애다 윽존 리기조차.</div>
+
+
+    </div>
+
+
+    
+</body>
+</html>

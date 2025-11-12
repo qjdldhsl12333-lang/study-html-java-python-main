@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 버튼을 누를때 마다 숫자가 증가하는 카운터 만들기 -->
+    <button id="btnCount">증가시키기</button>
+    <p id="result">0</p>
+
+    <script>
+        // let count = 0
+        // // btnCount 버튼
+        // let btn = document.querySelector("#btnCount")
+        // // result 결과값
+        // let result = document.querySelector("#result")
+
+        // function btn_listener(event) {
+
+        //     switch (event.target.id){
+        //         case 'btnCount': 
+        //         //버튼을 눌렀을시 p 태그에 숫자를 1씩 증가시킨다.
+        //             result.innerText = count++;
+        //             break;
+        //     }
+        // }
+        // btn.addEventListener("click",btn_listener)
+
+        //  이벤트가 일어나는 주체가 어디인가??
+        let btn= document.querySelector("#btnCount");
+
+        // 이벤트의 처리를 당하는대상
+        let counter =document.querySelector("#result");
+        // 이벤트가 일어났을때 뭐할건데? -> p태그있는값을 증가
+        let count = 0;
+        btn.addEventListener("click",() => {
+                counter.innerText = count++;
+        })
+
+
+    </script>
+
+</body>
+
+</html>

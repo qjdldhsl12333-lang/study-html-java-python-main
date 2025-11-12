@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<body>
+  <h2>🎵 음악 검색 (iTunes API)</h2>
+
+  <input id="search" placeholder="검색어 입력 (예: BTS)">
+  <button id="btn">검색</button>
+  <ul id="result"></ul>
+<script>
+// 요청주소 : 'ttps://itunes.apple.com/search?term=${keyword}&entity=song&limit=5`
+let search = document.querySelector("#search")
+let btn =document.querySelector("#btn")
+let result= document.querySelector("#result")
+
+// 버튼 클릭 시 검색 실행
+btn.addEventListener("click", function() {
+    let keyword = search.value.trim();
+    if (!keyword) {
+        alert("검색어를 입력하세요.");
+        return res.json();
+    }
+    // 버튼 클릭 시 fetch로 iTunes API를 호출한다
+    fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(keyword)}&entity=song&limit=5`)
+        .then(res => {
+            if (!res.ok) {
+                throw new Error("검색 결과 없음");
+            }
+            return res.json();
+        })
+        // 응답 받은 음악 제목과 가수를 <ul> 목록에 출력한다
+      .then(data => { //.then 
+            result.innerHTML = "";
+            if (data.results && data.results.length > 0) {
+                data.results.forEach(item => {
+                    let li = document.createElement("li");
+                    li.textContent = `${item.trackName} - ${item.artistName}`;
+                    result.appendChild(li);
+                });
+            } else {// 검색 결과가 없을 경우 "검색 결과 없음"을 표시한다
+                result.innerHTML = "<li>검색 결과 없음</li>";
+            }
+        })
+        .catch(err => {// 오류 발생 시 콘솔로 출력한다
+            console.error("에러 :" + err);
+            result.innerHTML = "<li>검색 결과 없음</li>";
+        });
+});
+
+
+    
+</script>
+
+ </body>
+</html>

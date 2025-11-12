@@ -1,0 +1,98 @@
+/* 기존 로그인 코드에서 아이디찾기 코드를 합침*/
+
+/* 기본 스타일 설정 - 전체 배경 설정 */
+body { /* 요소 구조가 기억이 안나서 구글링 및 수업자료 참조 */
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /*px말고 어떤것들이 있나 구글링 하다가
+     px,em,rem,vh,vw 단위들의 차이점을 찾았다.
+    해당 내용을 참조 */
+    margin: 0;
+}
+/* 로그인 컨테이너 스타일 */
+.login-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+/* 아이디 비밀번호 입력칸 스타일 */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* 패딩과 보더가 넓이를 공유하게 했다,
+    따로놀아서 고민했다. 이것 저것 붙여 보다가 결국 MDN Reference를 참조 하였다.   */
+}
+/* 버튼 스타일 ,양식은 대부분 참조 후 수정했다 */
+button { 
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer; /* 마우스를 갖다 댔을 시 포인터 모양을 손가락으로 변경 */
+    font-size: 16px;
+    margin-top: 10px;
+}
+/* :hover 버튼에 마우스를 올렸을 때 적용되는 배경색이 바뀐다 ,
+디테일을 고민하다가 찾았다.  */
+button:hover {
+    background-color: #0056b3;
+}
+/* 팝업 메시지 표시 스타일 */
+#messageArea {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    display: none; /*  숨겨짐 */
+}
+/* 성공 메시지, 해당 내용은 js에 있다. */
+.success {
+    background-color: #e8f5e9;
+    color: #4caf50;
+}
+/* 오류 메시지, 해당 내용은 js에 있다. */
+.error {
+    background-color: #ffebee;
+    color: #f44336;
+}
+
+/* 추가된 아이디 찾기 링크  */
+/* 링크 */
+.links { /*링크위치*/
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.links a { /* 링크 텍스트 속성*/
+    color: #007bff;
+    text-decoration: none;
+}
+
+.links a:hover { /*hover를 응용*/
+    text-decoration: underline;
+}

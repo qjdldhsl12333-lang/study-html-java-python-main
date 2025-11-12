@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let prew = () => {
+            num--;
+
+            // num이 1보다 작다면 7을 넣어라
+
+            // 이미지 태그의 src를 변경하시오.
+            if (num < 1) {
+                num = 7;
+            }
+        };
+        let next = () => {
+            num++;
+
+            // num이 7보다 커지면 1로 초기화
+            // if문은 ()들어가있는 조건(결과가 참 or 거짓)에 따라서
+            // {}에 들어있는 명령을 실행할지 실행하지 않을지 결정
+            // 대게 조건에 들어가는 것 : 비교연산자 (>, <, >=, <=, ===, !=),
+            // 논리연산자(&&, ||, !)
+            // false로 판별되는 것 : 0, null, undefined, NaN, "", false
+            if (num > 7) {
+                num = 1;
+            }
+            let gallery = document.querySelector("#gallery");
+            gallery.src = `../images/dog${num}.jpg`;
+        };
+
+        let path = `..images/dog${num}.jpg`;
+        let gallery = document.querySelector("#gallery");
+        gallery.src = path;
+        console.log(path);
+
+        setInterval(next, 2000);
+        
+    </script>
+</head>
+
+<body>
+    <div id="galleryWrap">
+        <p>
+            <button onclick="prev()">이전</button>
+            <img id="gallery" src="/images/dog1.jpg" alt="이미지 슬라이드" width="400" height="300">
+            <button onclick="next()">다음</button>
+        </p>
+
+    </div>
+
+
+</body>
+
+</html>

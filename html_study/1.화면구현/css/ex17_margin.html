@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     /* 너비 200px 
+        높이 80px
+        배경색 #898de3
+        글씨색 흰색, 줄간격 80
+        테두리 둥글게 8px
+        박스 그림자 0 0 5px  rgba(0,0,0,0.2) */
+        .contanier{
+            direction: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+        .base-box{
+            width: 200px;
+            height: 80px;
+            background: white;
+            color: black;
+            line-height: 80px;
+            border-radius: 8px;
+            border-style: 1px solid;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+            margin: 40px auto;
+            text-align: center;
+        }
+        h2{
+            text-align: center;
+        }
+        .box-top{
+            margin-top: 60px;
+        }
+        .box-right{
+            margin-right: 100px;
+        }
+        /* margin값이 겹칠 때는 더 큰값이 적용이 된다. */
+        .box-bottom{
+            margin-bottom: 60px;
+        }
+        .box-left{
+            margin-left: 100px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <h2>모든 방향 margin 실습 예제</h2>
+    <div class="container">
+    <div class="base-box box-top">margin-top : 60ox</div>
+    <div class="base-box box-right">margin-right : 100</div>
+    <div class="base-box box-bottom">margin-bottom : 60px</div>
+    <div class="base-box box-left">margin-left : 100</div>
+</div>
+
+
+    
+</body>
+</html>

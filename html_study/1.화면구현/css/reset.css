@@ -1,0 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    border:0;
+    font-size: 100%;
+    font: inherit;
+    /* 인라인 속성들이 배치될 때  세로 정렬 기준을 텍스트 기준으로 설정 */
+    vertical-align:baseline;
+}
