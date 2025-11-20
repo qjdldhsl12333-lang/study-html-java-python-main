@@ -1,0 +1,32 @@
+DB 시험 대비 
+1. DML
+SELECT - 조회
+INSERT - 추가
+UPDATE - 수정
+DELETE - 삭제
+2. 데이터베이스 모델링
+요구사항 분석 → 개념 모델링(ERD) → 논리 모델링(PK/FK, 정규화) → 물리 모델링(데이터
+타입, 인덱스)
+3. SQL 함수 종류
+문자함수(LENGTH, SUBSTR)
+숫자함수(ROUND, CEIL)
+날짜함수(YEAR, DATE_ADD)
+집계함수(SUM, AVG, COUNT)
+윈도우함수(ROW_NUMBER, RANK)
+4. JOIN 종류
+INNER JOIN - 일치하는 행만
+LEFT JOIN - 왼쪽 모두 + 오른쪽 매칭 없는 경우 NULL
+RIGHT JOIN - 오른쪽 기준
+CROSS JOIN - 모든 조합
+SELF JOIN - 자기 자신 테이블 2번 JOIN
+5. VIEW
+가상의 테이블, 읽기 전용, 복잡한 쿼리 단순화, 원본 변경 시 자동 반영
+6. 서브쿼리
+WHERE 절 - 비교 값
+FROM 절 - 인라인 뷰(임시 테이블)
+7. ORDER BY
+컬럼명, 별칭, 컬럼 번호 사용 가능
+8. PK / FK
+PK - 행을 유일하게 식별
+FK - 다른 테이블의 PK 참조
+JOIN의 기준이 됨
