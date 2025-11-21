@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS academy_db
+CREATE DATABASE IF NOT EXISTS study
 CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci
 
@@ -20,7 +20,9 @@ VALUES
 ('박지훈', 3, '2021-03-02', 1),
 ('최유진', 4, '2020-03-02', 3),
 ('정하늘', 1, '2023-03-02', 2);
-
+drop table student ; 
+drop table enrollments;
+drop table attendance;
 create table departments(
 department_id INT primary key,
 department_name VARCHAR(50) UNIQUE

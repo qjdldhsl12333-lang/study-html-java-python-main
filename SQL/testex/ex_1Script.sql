@@ -39,6 +39,8 @@ on e.student_id =s.student_id
 join courses c
 on c.course_id = e.course_id ;
 -- 문제 11) 성적이 없는 학생(수강 안한 학생)을 LEFT JOIN으로 조회하시오.
+
+
 -- 문제 12) 과목별 평균 점수를 조회하시오. (JOIN + GROUP BY)
 -- 문제 13) 학생 이름, 과목명, 성적을 포함하는 vw_student_scores VIEW를 생성하시오.
 -- 문제 14) VIEW에서 성적이 90점 이상인 학생을 조회하시오.
