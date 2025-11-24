@@ -24,6 +24,12 @@ public class For {
 		}
 		System.out.println();
 		//1부터 10까지 총합구하기
+		int total = 0;
+		for(int i = 1; i <= 10; i++) {
+			 total += i;
+			 System.out.println(total);
+		};
+		
 		
 		//키보드에서 숫자하나를 입력받고 구구단 출력하기
 		// 5 x 1 = 5
@@ -31,27 +37,28 @@ public class For {
 		// 5 x 3 = 15
 		//...
 		
+		
 		//키보드에서 숫자 두개를 입력받아서
 		//x부터 y까지의 총 합 구하기
 		//x가 y보다 크다면 값을 서로 교환해서 총합 구하기
-//		Scanner sc = new Scanner(System.in);
-//		
-//		System.out.print("첫번째 숫자 입력 : ");
-//		int x = sc.nextInt();
-//		
-//		System.out.print("두번째 숫자 입력 : ");
-//		int y = sc.nextInt();
-//		
-//		if(x > y) {
-//			int temp = x;
-//			x = y;
-//			y = temp;
-//		}
-//		
-//		int total = 0;
-//		for(int i = x; i <= y; i++) {
-//			total += i;
-//		}
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("첫번째 숫자 입력 : ");
+		int x = sc.nextInt();
+		
+		System.out.print("두번째 숫자 입력 : ");
+		int y = sc.nextInt();
+		
+		if(x > y) {
+			int temp = x;
+			x = y;
+			y = temp;
+		}
+		
+		int total = 0;
+		for(int i = x; i <= y; i++) {
+			total += i;
+		}
 		
 		//1 ~ 20까지의 정수 중 2의 배수가 아니면서 3의 배수가 아닌 수의 총합을
 		//구하세요
