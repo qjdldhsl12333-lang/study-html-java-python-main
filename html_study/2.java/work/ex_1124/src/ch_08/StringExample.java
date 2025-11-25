@@ -16,7 +16,7 @@ public class StringExample {
 			System.out.println("strVar1과 srtVar2는 참조하고 있는 주소가 같다.");
 		}
 		
-		//각 변수에 들어있는 문자열 내용이 같은지 비교
+		//각 변수에 들어있는 문자열 내용이 같은지 비교 equals():
 		if(strVar1.equals(strVar2)) {
 			System.out.println("strVar1과 srtVar2는 문자열 값이 같다.");
 		}

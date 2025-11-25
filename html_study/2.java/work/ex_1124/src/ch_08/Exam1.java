@@ -11,7 +11,9 @@ public class Exam1 {
 		System.out.print("문자열 입력 : ");
 		String word =sc.next();
 		int count =0;
+		//length(): 문자열의 길이를 반환
 		for(int i = 0;i < word.length(); i++) {
+			// charAt(index): 문자열에서 해당 인덱스에 해당하는 '문자'를 반환
 			char ch =word.charAt(i);
 			if(ch == 'a') {
 				count++;
@@ -34,6 +36,8 @@ public class Exam1 {
 		System.out.print("이메일을 입력하세요 : ");
 		String email =sc.next();
 	//아이디는 몇글자 일지는 모르겠으나 '@'의 위치를 찾아서 그 앞까지 자르면
+		//indexOf("문자열"): 해당문자열의 인덱스값을 반환
+		//substring(offset,endindex) :시작인덱스부터,endindex전까지 자른다. 
 		String id =email.substring(0,email.indexOf("@"));
 		System.out.println(id);
 	}
