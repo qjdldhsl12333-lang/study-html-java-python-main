@@ -1,0 +1,62 @@
+
+
+
+1.모델링 실습
+1.요구사항 
+-꽃테이블과 화분 테이블이 있고,꽃을 구매할 때 화분도 같이 구매한다.
+-꽃 테이블에는 꽃 이름, 꽃색깔 ,가격이 있다.
+-화분테이블에는 제품 번호, 화분 색깔 화분 모양 꽃이름이있다.
+
+2.개념 모델링
+어떤 테이블을 만들어야 하고, 어떤 속성이 들어가야 하는지 작성하기
+
+3. 속성들의 타입, 기본키
+꽃 테이블  -속성들의 타입, 기본키 설정
+-------
+꽃 이름 VARCHAR(100) primay key
+꽃 색깔 VARCHAR(100)
+가격 
+
+화분 테이블 
+제품 번호 INT unique
+꽃 이름 VARCHAR(100) primary key 
+화분 색깔 VARCHAR(100)
+화분 모양 VARCHAR(100)
+
+-속성들의 타입, 기본키 설정
+
+
+4. 물리 모델링
+꽃 테이블이랑 화분 테이블 만들기
+
+개념 모델링 +논리모델링
+
+1.쇼핑몰 데이터베이스 구축
+2회원 정보 member_info
+----------------------------
+ID=ID VARCHAR(100) pk
+PW=PW VARCHAR(100)
+이름= name VARCHAR(100)
+주소= adress VARCHAR(100)
+이메일= email VARCHAR(100)
+생일= birth INT
+
+3.상품  goods
+---------------------------
+상품 번호= g_number INT PK
+상품명= g_name VARCHAR(100)
+가격= price INT
+재고= inventory INT
+
+4.주문oder
+------------------------------
+주문 번호= o_number INT PK
+주문일= o_date INT
+ID=id VARCHAR(100) FK
+상품번호= g_number INT FK
+
+
+
+개념 모델링 +논리모델링
+
+CONSTRAINT FLOWER_FK FOREIGN KEY(F_NAME) references FLOWER(F_NAME)

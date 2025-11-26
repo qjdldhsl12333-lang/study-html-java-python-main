@@ -1,5 +1,8 @@
 package ch13;
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class CarMain {
 	//기본생성자의 정의 없이, 매개변수가 있는 생성자를 정의하면
 	// 더이상 기본 생성자를 사용할 수 없다.
@@ -7,7 +10,16 @@ public class CarMain {
 	
 	//생성자를 호출하면서 데이터를 보냄
 	Car c1 = new Car ("그랜져","검정",250);
+	
+	String s = new String("홍길동");
+	
+	Random r = new Random();
+	 
+	Scanner sc = new Scanner(System.in);
+
+	
 }
+
 //생성자
 //객체를 생성해주는 특수한 기능을 가지고 있는 메서드
 //따로 정의 하지 않으면 컴파일러가 알아서 만들어줌 -> 우리눈엔 안보임

@@ -5,15 +5,15 @@ import java.util.Comparator;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Arraysexample {
+public class Arrayexample {
    public static void main(String[] args) {
-      //Arrays클래스
+      //Arrays 클래스
       //배열의 복사, 정렬, 검색 등
       //배열을 다루기 위한 다양한 메서드를 가지고 있다.
       
       //Scanner,Random 클래스에 있는 기능을 가져다 쓸 때
       
-      //Arrays는 객체의 생성 없이 호출해서 쓸 수 있다.
+      //Arrays 는 객체의 생성 없이 호출해서 쓸 수 있다.
       //static -> 객체의 생성없이 호출하는것이 가능하다
       //클래스에 붙어있는 변수를 만들거나, 메서드를 만들 때 붙이는 키워드
       //메모리에 무조건 한번만 올라간다.
