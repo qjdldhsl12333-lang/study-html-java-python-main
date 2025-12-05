@@ -80,9 +80,77 @@ final을 쓸 수 있어서 의존성이 반드시 필요함을 명확히 표현�
 setter를 public으로 열어두면 외부에서 의도치 않게 다른 객체를 다시 넣어버릴수도 있다.
 객체생명주기 중간에 의존성이 바뀔 수 있어서 코드 추적이 힘들어 질 수 있다.
 
-영속 개층
+표현계층
+controller
+서비스 계층 DTO
+sevice
+영속계층
+repository Entity
+DB
 
+Todo 서비스 만들기
+스프링 JPA를 기반으로 생성, 검색, 수정,삭제 API를 만들어보자
 
+사용자		->	todoController	->	todoService	->	DB
+(할일을 입력)	->	todoDTO	->todoEntity
 
+사용자		<-	todoController	<-	todoService	<-	DB
+(할일을 입력)	<-	todoDTO	<-todoEntity
 
+상품관리 프로젝트
+gruop id : com.korea
+artifact : product
 
+SpringWeb
+devTools
+jpa
+h2
+lombok
+
+controller
+ProductController
+- 요청을 DTO로 받는다.
+- 서비스의 createProduct()를 호출한다
+- 결과로 저장된 상품을 DTO로 반환한다.
+
+service
+ProductService
+- 상품 등록 로직을 작성한다.
+- name이 null 또는 빈 문자열이면 예외 발생
+- price < 0 예외
+- stock <0 예외
+- 검증에 통과하면 Repository를 이용해 저장
+
+persistence
+ProductRepository
+- JpaRepository<> 상속
+- 추가메서드는 필요 없음
+
+ProductEntity
+- int id pk, 자동증가
+- String name
+- int price
+- int stock
+- String description
+
+ProductDTO
+- int id
+- String name
+- int price
+- int stock
+- String description
+
+{
+  "name": "게이밍 마우스",
+  "price": 35000,
+  "stock": 20,
+  "description": "RGB 지원 무선 마우스"
+}
+
+{
+  "id":"xxxxxx",
+  "name": "게이밍 마우스",
+  "price": 35000,
+  "stock": 20,
+  "description": "RGB 지원 무선 마우스"
+}

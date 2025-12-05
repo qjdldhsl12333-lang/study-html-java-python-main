@@ -1,9 +1,11 @@
 package com.korea.product.model;
 
 import jakarta.persistence.Entity;
-
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+@Builder
 @Entity
-
+@NoArgsConstructor
 
 public class ProductEntity {
 	

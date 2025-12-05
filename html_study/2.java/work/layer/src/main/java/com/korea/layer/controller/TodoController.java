@@ -65,9 +65,9 @@ public class TodoController {
 			
 			//서비스 레이어의 create메서드를 호출해서, TodoEntity를 데이터베이스에 저장하는 작업을 한다.
 			//저장을 한 다음 TodoEnitiy 객체들을 저장한 List를 반환한다.
-			TodoService todo = new TodoService();
+//			TodoService todo = new TodoService();
 			
-			List<TodoEntity> entites = todo.create(entity);
+			List<TodoEntity> entites = service.create(entity);
 			
 			
 			List<TodoDTO> dtos = new ArrayList<>();
@@ -82,7 +82,12 @@ public class TodoController {
 			return ResponseEntity.ok().body(response);
 			
 		} catch (Exception e) {
-			return
+			String errorString = e.getMessage();
+			
+			ResponseDTO<TodoDTO> response = ResponseDTO.<TodoDTO>builder()
+			        .error(e.getMessage())
+			        .build();
+			return ResponseEntity.ok().body(response); 
 					
 		}
 	}

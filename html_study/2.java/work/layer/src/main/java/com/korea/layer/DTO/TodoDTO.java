@@ -44,7 +44,8 @@ public class TodoDTO {
 		return TodoEntity.builder()
 				.id(dto.getId())
 				.title(dto.getTitle())
-				.done(dto.isDone());
+				.done(dto.isDone())
+				.build();
 	}
 
 }

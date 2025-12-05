@@ -1,5 +1,6 @@
 package com.korea.layer.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.management.RuntimeErrorException;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.korea.layer.model.TodoEntity;
 import com.korea.layer.persistence.TodoRepository;
-import com.sun.tools.javac.util.Log;
+
 
 import jakarta.persistence.Entity;
 import lombok.RequiredArgsConstructor;
@@ -55,7 +56,7 @@ public class TodoService {
 		return savedEntity.getTitle();
 	}
 	
-	public create(TodoEntity entity) {
+	public List<TodoEntity>  create(TodoEntity entity) {
 		//1.매게 변수로 넘어온 Entity가 유효(null인지 아닌지)한지 검사한다.
 		//null이면 RunTimeException("Entity cannot be null")
 		if(entity == null) {

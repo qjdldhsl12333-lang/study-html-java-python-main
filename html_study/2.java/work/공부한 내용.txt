@@ -1,0 +1,20 @@
+repository
+는 DB(SQL)랑 직접 통신하는 클래스
+@Repository 어노테이션을 붙여서 가능
+
+Entity는 데이터를 저장하고
+DB의 테이블을 표현하는 클래스 
+
+service는 entity를 생성 저장 조회 검증하는 클래스
+repository와 데이터를 주고받는다.
+레파지토리를 호출하는 유일한 공간
+
+DTO는 
+Entity의 보안이 필요한 데이터를 감추고,
+프론트와 주고받는 데이터를 담는 박스
+
+controller는
+요청을 받고
+DTO를 만든후 Service넘기는 역할 
+http요청을 컨트롤러로 받음
+
