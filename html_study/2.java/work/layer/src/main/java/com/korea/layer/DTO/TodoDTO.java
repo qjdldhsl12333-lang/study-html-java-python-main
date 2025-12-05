@@ -38,6 +38,13 @@ public class TodoDTO {
 		return;
 		
 	}
-	
+	//DTO를 Entity 타입으로 바꾸는 toEntity메서드 만들기
+	public static TodoEntity toEntity(TodoDTO dto) {
+		
+		return TodoEntity.builder()
+				.id(dto.getId())
+				.title(dto.getTitle())
+				.done(dto.isDone());
+	}
 
 }
