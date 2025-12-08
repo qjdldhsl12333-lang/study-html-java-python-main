@@ -18,3 +18,10 @@ controller는
 DTO를 만든후 Service넘기는 역할 
 http요청을 컨트롤러로 받음
 
+의존성 주입
+1.Autowired 필드 주입
+필드에 final을 못써서 불변성을 보장하지 못한다.
+2.setter주입
+3. 생성자 주입
+
+

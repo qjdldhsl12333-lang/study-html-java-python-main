@@ -154,3 +154,96 @@ ProductDTO
   "stock": 20,
   "description": "RGB 지원 무선 마우스"
 }
+=================================================
+사용자의 정보를 관리하는 사용자 관리 시스템 프로그램 만들기(CRUD)
+groupID : com.korea
+artifact : user
+
+필요 라이브러리
+Spring Web
+h2
+lombok
+jpa
+devtool
+
+com.korea.user.model
+UserEntity
+- id,name,email 필드를 갖는다.
+int id -> pk 값 자동생성 전략 GenerationType.Auto
+String name
+String email
+
+com.korea.user.dto
+UserDTO
+- int id
+- String name
+- String email
+
+생성자를 통해 Entity 객체를 DTO객체로 변환
+
+DTO객체를 Entity로 바꾸는 toEntity메서드
+
+com.korea.user.repository
+UserRepository
+- JpaRepository를 상속받는다.
+- 이메일을 통해 유저를 찾는 findByEmail추상메서드 추가하기
+(반환 타입은 UserEntity)
+
+com.korea.user.service
+UserService
+-사용자를 생성하는 create메서드 생성하기
+
+com.korea.user.controller
+UserController
+-유저를 추가하는 createUser메서드
+-HTTP 메서드 : POST
+
+
+모든 사용자 조회
+UserService
+getAllUsers() 메서드 만들기
+
+UserController
+메서드명
+getAllUsers()
+HTTP메서드 : GET
+
+이메일을 통한 사용자 검색
+
+UserService
+getUserbyEmail() 메서드 만들기
+
+UserController
+HTTP메서드 : GET
+메서드명 : getUserByEmail
+리소스 : /{email}
+
+ID를 통해 이름과 이메일 수정하기
+UserService
+getUserByEmail()메서드 생성하기
+
+UserController
+http메서드 : put 
+메서드명 : updateUser
+
+삭제하기
+ID를 가지고 유저를 삭제하는 기능 만들기
+UserService
+메서드명 deleteUser
+사용자가 존재하는지 확인
+삭제 되면 true, 삭제 안되면 false를 반환
+UserController
+HTTP메서드 : DELETE
+메서드명 : deleteUser
+리소스 : /{id}
+삭제에 성공하면 "User deleted successfully"
+실패하면 .status(404).body("user not found with id " + id)
+
+
+
+
+
+
+
+
+

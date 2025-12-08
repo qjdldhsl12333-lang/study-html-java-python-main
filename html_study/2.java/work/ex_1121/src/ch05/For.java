@@ -36,7 +36,17 @@ public class For {
 		// 5 x 2 = 10
 		// 5 x 3 = 15
 		//...
+		Scanner sc1 =new Scanner(System.in);
+		System.out.println("숫자를 입력하세요");
+		int gugu =sc1.nextInt();
+	
+		for(int i = 1; i < 10; i++  ) {
+			int dan = gugu * i ;
+					
+			System.out.printf("%d x %d = %d \n", gugu , i , gugu* i );1
+		}
 		
+				
 		
 		//키보드에서 숫자 두개를 입력받아서
 		//x부터 y까지의 총 합 구하기
@@ -55,7 +65,7 @@ public class For {
 			y = temp;
 		}
 		
-		int total = 0;
+		int total1 = 0;
 		for(int i = x; i <= y; i++) {
 			total += i;
 		}
@@ -86,7 +96,7 @@ public class For {
 		//1 + (1 + 2) + (1 + 2 + 3) + (1 + 2 + 3 +4) + ...(1 + ...+10)
 		//의 결과를 계산하시오
 		
-		int total = 0;
+		int tot = 0;
 		sum = 0;
 		
 		for(int i =1; i<=10; i++) {
@@ -94,7 +104,7 @@ public class For {
 			total += sum;//1+ (1+2) +(1+2+3)...
 		}
 		
-		System.out.println(total);
+		System.out.println(tot);
 		
 		
 		
@@ -111,7 +121,7 @@ public class For {
 		
 		
 		
-		
+
 		
 		
 		

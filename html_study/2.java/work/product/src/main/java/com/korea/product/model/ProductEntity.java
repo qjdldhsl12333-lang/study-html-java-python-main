@@ -1,19 +1,25 @@
 package com.korea.product.model;
 
-import jakarta.persistence.Entity;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-@Builder
+import jakarta.persistence.*;
+import lombok.*;
+
 @Entity
+@Table(name = "product")
+@Getter @Setter
 @NoArgsConstructor
-
+@AllArgsConstructor
+@Builder
 public class ProductEntity {
-	
-	int id;
-	String name;
-	int price;
-	int stock;
-	String descript;
-	
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    private String name;
+
+    private int price;
+
+    private int stock;
+
+    private String description;
 }
