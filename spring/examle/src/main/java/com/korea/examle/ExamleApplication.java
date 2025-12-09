@@ -1,0 +1,13 @@
+package com.korea.examle;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ExamleApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ExamleApplication.class, args);
+	}
+
+}

@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +27,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("todo")
 //@RequiredArgsConstructor
+@CrossOrigin(originPatterns ="*",allowCredentials = "false")
 public class TodoController {
 	//해야할 일 api 만들것이다.
 	
@@ -54,7 +56,7 @@ public class TodoController {
 		return ResponseEntity.ok().body(response);
 	}
 	//할일생성--------------------------------------------------------------------------
-	@PostMapping
+	@PostMapping("/createTodo")
 	public ResponseEntity<?> createTodo(@RequestBody TodoDTO dto){
 		try {
 			String tempraryUserId ="temporary-user";
@@ -71,15 +73,21 @@ public class TodoController {
 			//저장을 한 다음 TodoEnitiy 객체들을 저장한 List를 반환한다.
 //			TodoService todo = new TodoService();
 			
-			List<TodoEntity> entites = service.create(entity);
+			List<TodoEntity> entities = service.create(entity);
 			
 			
-			List<TodoDTO> dtos = new ArrayList<>();
 			
-			//리스트안에 있는 TodoEntity를 TodoDTO 타입으로 변경해서 dtos에 넣는다.
-			for(TodoEntity e :entites) {
-				dtos.add(new TodoDTO(e)); //entity를 dto로 바꿔서 리스트에 추가
-			}
+			List<TodoDTO> dtos = entities.stream()
+					.map(TodoDTO::new)
+					.collect(Collectors.toList());
+			
+//			List<TodoDTO> dtos = new ArrayList<>();
+//			
+//			//리스트안에 있는 TodoEntity를 TodoDTO 타입으로 변경해서 dtos에 넣는다.
+//			for(TodoEntity e :entites) {
+//				dtos.add(new TodoDTO(e)); //entity를 dto로 바꿔서 리스트에 추가
+//			}
+			
 			//builder패턴을 이용해서 dtos를 ResponseDTO에 담아서 ResPonseEntity로 반환한다.
 			ResponseDTO<TodoDTO> response = ResponseDTO.<TodoDTO>
 					builder().
@@ -109,11 +117,9 @@ public class TodoController {
 	      List<TodoEntity> entities = service.retrieve(temporaryUserId);
 	      
 	      //List에 들어있는 Entity들을 DTO로 변환한다.
-	      List<TodoDTO> dtos = new ArrayList<TodoDTO>();
-	      
-	      for(TodoEntity e : entities) {
-	         dtos.add(new TodoDTO(e));
-	      }
+			List<TodoDTO> dtos = entities.stream()
+					.map(TodoDTO::new)
+					.collect(Collectors.toList());
 	      
 	      //ResponseDTO객체에 담는다.
 	      ResponseDTO<TodoDTO> response = ResponseDTO.<TodoDTO>
@@ -151,10 +157,9 @@ public class TodoController {
 	           List<TodoEntity> entities = service.update(entity);
 
 	           // Entity → DTO 변환
-	           List<TodoDTO> dtos = new ArrayList<>();
-	           for (TodoEntity e : entities) {
-	               dtos.add(new TodoDTO(e));
-	           }
+	           List<TodoDTO> dtos = entities.stream()
+						.map(TodoDTO::new)
+						.collect(Collectors.toList());
 
 	           // 성공 응답
 	           ResponseDTO<TodoDTO> response = ResponseDTO.<TodoDTO>
