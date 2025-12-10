@@ -1,4 +1,4 @@
-package com.korea.layer.DTO;
+package com.korea.layer.dto;
 
 import java.util.List;
 

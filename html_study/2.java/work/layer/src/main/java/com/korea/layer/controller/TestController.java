@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.korea.layer.DTO.*;
+import com.korea.layer.dto.*;
 
 
 //url로 요청이 들어오면 메서드가 실행이 되고 결과를 브라우저에게 반환한다.
