@@ -1,28 +1,20 @@
 package com.korea.product.dto;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Data
-@Getter
-@Setter
-@NoArgsConstructor
+@Builder
 @AllArgsConstructor
-public class ResponseDTO {
-	
-	String name;
-	int inven;
-	int price;
-	@CreationTimestamp
-	String LocalDateTime;
-	@UpdateTimestamp
-	String LocalDatetime;
-	
+@NoArgsConstructor
+@Data
 
+public class ResponseDTO<T> {
+	
+	private String error;
+	private List<T> data;
+	
 }
