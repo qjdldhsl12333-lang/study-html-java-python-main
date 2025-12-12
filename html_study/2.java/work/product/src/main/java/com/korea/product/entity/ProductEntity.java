@@ -29,10 +29,10 @@ public class ProductEntity {
 //	- int price
 //	- int stock
 //	- String description
-	private int id;
-    private String name;
-    private int price;
-    private int stock;
+	private int productId;
+    private String productName;
+    private int productPrice;
+    private int productStock;
     
     @CreationTimestamp
     // Insert 쿼리가 발생했을때  현 시간 값을 적용시켜준다

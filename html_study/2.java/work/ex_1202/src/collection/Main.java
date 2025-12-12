@@ -102,7 +102,7 @@ public class Main {
 					top =s;
 				}
 			}
-			System.out.println(list.get(i));
+			// System.out.println(list.get(i));
 			
 			
 			

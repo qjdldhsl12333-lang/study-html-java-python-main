@@ -20,12 +20,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name ="Order")
-public class OrderEntity {
+@Table(name ="T_ORDERS")
+public class T_ORDERS_Entity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	
+	private int orderId;
 	@ManyToOne //다대일 관계를 설정 (하나의 ProductEntity가 여러개의 OrderEntity에 의해 참조될수 있다.)
 	@JoinColumn(name = "productId", nullable = false) //외래키로 사용할 컬럼의 정보를 지정
 	private ProductEntity product;

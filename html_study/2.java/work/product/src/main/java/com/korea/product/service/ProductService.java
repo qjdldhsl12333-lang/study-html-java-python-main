@@ -19,17 +19,17 @@ public class ProductService {
 	private final ProductRepository repository;
 		public List<ProductEntity> createProduct(ProductEntity entity){
 		// 1. name 검증 로직 추가
-        if (entity.getName() == null || !StringUtils.hasText(entity.getName())) {
+        if (entity.getProductName() == null || !StringUtils.hasText(entity.getProductName())) {
             throw new RuntimeException("상품명은 필수 입력 항목입니다.");
         }
         
         // 2. price 검증 로직 추가
-        if (entity.getPrice() < 0) {
+        if (entity.getProductPrice() < 0) {
             throw new RuntimeException("상품 가격은 0 미만일 수 없습니다.");
         }
         
         // 3. stock 검증 로직 추가
-        if (entity.getStock() < 0) {
+        if (entity.getProductStock() < 0) {
             throw new RuntimeException("재고 수량은 0 미만일 수 없습니다.");
         }
         
@@ -45,12 +45,12 @@ public class ProductService {
 	
 	public List<ProductEntity> updateProduct(ProductEntity entity){
 		
-		ProductEntity target = repository.findById(entity.getId())
+		ProductEntity target = repository.findById(entity.getProductId())
 				.orElseThrow(() -> new RuntimeException("User not found"));
 		
-		target.setName(entity.getName());
-		target.setPrice(entity.getPrice());
-		target.setStock(entity.getStock());
+		target.setProductName(entity.getProductName());
+		target.setProductPrice(entity.getProductPrice());
+		target.setProductStock(entity.getProductStock());
 		
 		repository.save(target);
 		

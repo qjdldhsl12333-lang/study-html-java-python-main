@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import com.google.common.reflect.ClassPath;
+import com.korea.di.di4.Car;
+import com.korea.di.di4.Engine;
 
 //객체 자동 등록하기
 //ComponentScaning

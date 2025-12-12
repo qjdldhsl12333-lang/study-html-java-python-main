@@ -20,7 +20,6 @@ import com.korea.product.service.ProductService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-@CrossOrigin(originPatterns = "*", allowCredentials = "false") // 또는 실제 프론트 주소
 
 @RestController
 @RequestMapping("product")
@@ -49,7 +48,7 @@ public class ProductController {
 	public ResponseEntity<?> updateProduct(@PathVariable("id") int id, @RequestBody ProductDTO dto){
 		// dto -> entity 변환
 		ProductEntity entity = ProductDTO.toEntity(dto);
-		entity.setId(id);
+		entity.setProductId(id);
 		
 		List<ProductEntity> entities = service.updateProduct(entity);
 		return ResponseEntity.ok(eToDTO(entities));

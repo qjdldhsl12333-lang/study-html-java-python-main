@@ -22,10 +22,10 @@ public class ProductDTO {
 //	- String name
 //	- int stock
 //	- String description'
-	int id;
-	String name;
-	int price;
-	int stock;
+	int productId;
+	String productName;
+	int productPrice;
+	int productStock;
 	@CreationTimestamp
 	LocalDateTime registerTime;
 	@UpdateTimestamp
@@ -33,10 +33,10 @@ public class ProductDTO {
 	
 	  // Entity → DTO
     public ProductDTO(ProductEntity entity) {
-        this.id = entity.getId();
-        this.name = entity.getName();
-        this.price = entity.getPrice();
-        this.stock = entity.getStock();
+        this.productId = entity.getProductId();
+        this.productName = entity.getProductName();
+        this.productPrice = entity.getProductPrice();
+        this.productStock = entity.getProductStock();
         this.registerTime = entity.getRegisterTime();
         this.updateTime = entity.getUpdateTime();
     }
@@ -44,9 +44,9 @@ public class ProductDTO {
     public static ProductEntity toEntity(ProductDTO dto) {
     	
 		return ProductEntity.builder()
-                .name(dto.getName())
-                .price(dto.getPrice())
-                .stock(dto.getStock())
+                .productName(dto.getProductName())
+                .productPrice (dto.getProductPrice())
+                .productStock(dto.getProductStock())
                 .build();
 	}
 }

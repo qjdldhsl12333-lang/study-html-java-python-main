@@ -43,7 +43,7 @@ public class For {
 		for(int i = 1; i < 10; i++  ) {
 			int dan = gugu * i ;
 					
-			System.out.printf("%d x %d = %d \n", gugu , i , gugu* i );1
+			System.out.printf("%d x %d = %d \n", gugu , i , gugu* i );
 		}
 		
 				

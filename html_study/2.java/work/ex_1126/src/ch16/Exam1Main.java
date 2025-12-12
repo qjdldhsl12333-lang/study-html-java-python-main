@@ -15,7 +15,7 @@ public static void main(String[] args) {
 	Exam1 exam =new Exam1(); //내가 만든 클래스 밑이랑 같은개념
 	
 	exam.maxFinder(arr);
-	System.out.println(exam.maxFinder(arr));
+	// System.out.println(exam.maxFinder(arr));
 	//클래스명 변수명;
 	//변수명 = new 클래스명()
 	String str = new String("문자열"); //자바가 만든 클래스
