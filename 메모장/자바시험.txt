@@ -1,0 +1,505 @@
+exam 프로젝트를 생성한다.
+- eaxm 패키지를 생성하고 요구사항에 맞게 클래스를 작성한다.
+ 
+
+1번. 클래스와 객체 기본 구현 (10점)
+다음 요구사항을 만족하는 Student 클래스를 작성하고, main 메서드에서 객체를 생성해 사용하는 코드를 작성하라
+
+요구사항
+
+Student 클래스는 다음 필드를 가진다
+- String name
+- int age
+- String major
+모든 필드를 초기화하는 생성자를 만든다
+메서드
+class Student{
+String name;
+int age;
+String major;
+}
+
+
+학생 정보를 “이름: 홍길동, 나이: 20, 전공: 컴퓨터공학” 형식으로 출력하는 printInfo() 메서드를 만든다
+Main 클래스를 만들고 main 메서드에서 Student 객체를 1개 생성하고 printInfo()를 호출하는 코드를 작성하라
+------------------------------------------------------------------------------------------------------------------------
+ class Student {
+   String name;
+   int age;
+   String major;
+
+   Student(String name, int age, String major) {
+       this.name = name;
+       this.age = age;
+       this.major = major;
+   }
+
+   void printInfo() {
+       System.out.println("이름: " + name + ", 나이: " + age + ", 전공: " + major);
+   }
+}
+
+public class Main1 {
+   public static void main(String[] args) {
+       Student s = new Student("홍길동", 20, "컴퓨터공학");
+       s.printInfo();
+   }
+}
+----------------------------------------------------------------------------------------------------------------------
+2번. 메서드 구현 및 반환값 활용 (10점)
+요구사항
+
+Calculator 클래스를 작성한다
+다음 메서드를 작성한다
+int add(int a, int b) → a + b 반환
+int subtract(int a, int b) → a - b 반환
+int multiply(int a, int b) → a * b 반환
+double divide(int a, int b) → a / b 결과를 실수로 반환
+만약 b가 0이면 0을 반환하도록 한다 (예외 처리는 사용하지 않는다)
+main 메서드에서 Calculator 객체를 생성하고 위 네 메서드를 각각 한 번씩 호출하여 결과를 출력하는 코드를 작성하라
+-------------------------------------------------------------------------------------------------------------------------
+ class Calculator {
+   int add(int a, int b) {
+       return a + b;
+   }
+
+   int subtract(int a, int b) {
+       return a - b;
+   }
+
+   int multiply(int a, int b) {
+       return a * b;
+   }
+
+   double divide(int a, int b) {
+       if (b == 0) {
+           return 0;
+       }
+       return (double) a / b;
+   }
+}
+
+public class Main2 {
+   public static void main(String[] args) {
+       Calculator c = new Calculator();
+       System.out.println(c.add(10, 5));
+       System.out.println(c.subtract(10, 5));
+       System.out.println(c.multiply(10, 5));
+       System.out.println(c.divide(10, 5));
+   }
+}
+------------------------------------------------------------------------------------------------------------------------
+3번. 생성자 오버로딩 (10점)
+2차원 좌표를 나타내는 Point 클래스를 작성하라
+
+요구사항
+
+Point 클래스는 다음의 필드를 가진다.
+- int x
+- int y
+ 
+다음 두 생성자를 오버로딩한다
+- 매개변수 없는 기본 생성자 → x = 0, y = 0으로 초기화
+- Point(int x, int y) → 전달받은 값으로 초기화
+메서드
+현재 좌표를 (x=3, y=5) 형식으로 출력하는 printPoint() 메서드를 만든다
+
+main 메서드에서 기본 생성자로 만든 Point 객체 1개 매개변수 있는 생성자로 만든 Point 객체 1개 를 생성하고 각각 printPoint()를 호출하는 코드를 작성하라
+ ----------------------------------------------------------------------------------------------------------------------------
+class Point {
+   int x;
+   int y;
+
+   Point() {
+       this.x = 0;
+       this.y = 0;
+   }
+
+   Point(int x, int y) {
+       this.x = x;
+       this.y = y;
+   }
+
+   void printPoint() {
+       System.out.println("(x=" + x + ", y=" + y + ")");
+   }
+}
+
+public class Main3 {
+   public static void main(String[] args) {
+       Point p1 = new Point();
+       Point p2 = new Point(3, 5);
+
+       p1.printPoint();
+       p2.printPoint();
+   }
+}
+------------------------------------------------------------------------------------------------------------------------
+4번. 메서드 오버로딩 (10점)
+요구사항
+
+Printer 클래스를 작성한다
+다음 메서드를 오버로딩하여 작성한다
+void print(String message) → 매개변수로 받은 문자열을 출력
+void print(int value) → “정수: 10”을 출력
+void print(double value) → “실수: 3.14 ”을 출력
+main 메서드에서 Printer 객체를 생성하고 문자열, 정수, 실수를 각각 한 번씩 print 메서드로 출력하는 코드를 작성하라
+------------------------------------------------------------------------------------------------------------------------
+class Printer {
+   void print(String message) {
+       System.out.println(message);
+   }
+
+   void print(int value) {
+       System.out.println("정수: " + value);
+   }
+
+   void print(double value) {
+       System.out.println("실수: " + value);
+   }
+}
+
+public class Main4 {
+   public static void main(String[] args) {
+       Printer p = new Printer();
+       p.print("안녕하세요");
+       p.print(10);
+       p.print(3.14);
+   }
+} 
+
+------------------------------------------------------------------------------------------------------------------------
+5번. 상속 기본 – Person / Student (10점)
+사람과 학생을 클래스로 표현하라
+
+요구사항
+
+Person 클래스
+필드: String name, int age
+생성자: 두 필드를 초기화하는 생성자
+메서드: void introduce() “안녕하세요, 저는 홍길동이고 20살입니다” 출력
+ 
+Student 클래스
+Person 클래스를 상속받는다
+추가 필드: String major
+생성자: 이름, 나이, 전공을 모두 초기화하는 생성자
+메서드: void introduce()를 오버라이딩하여 “안녕하세요, 저는 홍길동이고 20살, 전공은 컴퓨터공학입니다” 출력
+main 메서드에서 Student 객체를 생성하고 introduce()를 호출하는 코드를 작성하라
+------------------------------------------------------------------------------------------------------------------------
+class Person {
+   String name;
+   int age;
+
+   Person(String name, int age) {
+       this.name = name;
+       this.age = age;
+   }
+
+   void introduce() {
+       System.out.println("안녕하세요, 저는 " + name + "이고 " + age + "살입니다");
+   }
+}
+
+class Student2 extends Person {
+   String major;
+
+   Student2(String name, int age, String major) {
+       super(name, age);
+       this.major = major;
+   }
+
+   @Override
+   void introduce() {
+       System.out.println("안녕하세요, 저는 " + name + "이고 " + age +
+               "살, 전공은 " + major + "입니다");
+   }
+}
+
+public class Main5 {
+   public static void main(String[] args) {
+       Student2 s = new Student2("홍길동", 20, "컴퓨터공학");
+       s.introduce();
+   }
+}
+ 
+------------------------------------------------------------------------------------------------------------------------
+6번. 오버라이딩과 다형성 – 동물 소리 (10점)
+요구사항
+
+Animal 클래스를 작성한다
+메서드: void sound() “동물이 소리를 냅니다” 출력
+Dog, Cat 클래스를 작성하고 Animal을 상속받는다
+ 
+Dog.sound() 오버라이딩 → 멍멍 출력
+Cat.sound() 오버라이딩 → 야옹 출력
+ 
+main 메서드에서 Animal 타입 배열 Animal[] animals = new Animal[3];를 만들고
+0번: new Animal()
+1번: new Dog()
+2번: new Cat()
+로 채운다
+향상된 for문을 이용해 sound()를 모두 호출하는 코드를 작성하라
+----------------------------------------------------------------------------------------------------------------------------
+ class Animal {
+   void sound() {
+       System.out.println("동물이 소리를 냅니다");
+   }
+}
+
+class Dog extends Animal {
+   @Override
+   void sound() {
+       System.out.println("멍멍");
+   }
+}
+
+class Cat extends Animal {
+   @Override
+   void sound() {
+       System.out.println("야옹");
+   }
+}
+
+public class Main6 {
+   public static void main(String[] args) {
+       Animal[] animals = new Animal[3];
+       animals[0] = new Animal();
+       animals[1] = new Dog();
+       animals[2] = new Cat();
+
+       for (Animal a : animals) {
+           a.sound();
+       }
+   }
+}
+------------------------------------------------------------------------------------------------------------------------
+7번. 추상 클래스 활용 – 도형의 넓이 (10점)
+요구사항
+
+추상 클래스 Shape를 작성한다 abstract
+추상 메서드: double area()
+ 
+Rectangle 클래스
+Shape를 상속
+필드: double width, double height
+생성자: 두 필드를 초기화하는 생성자
+area() 구현 → width * height 반환return
+ 
+Circle 클래스
+Shape를 상속
+필드: double radius(반지름)
+생성자: 반지름을 초기화하는 생성자
+area() 구현 → 3.14 * radius * radius 반환
+ 
+main 메서드에서
+Shape 타입 배열을 만들어 가로 4, 세로 5인 Rectangle 반지름 3인 Circle 를 넣고, 각 도형의 넓이를 출력하는 코드를 작성하라
+------------------------------------------------------------------------------------------------------------------------------
+ abstract class Shape {
+   abstract double area();
+}
+
+class Rectangle extends Shape {
+   double width;
+   double height;
+
+   Rectangle(double width, double height) {
+       this.width = width;
+       this.height = height;
+   }
+
+   @Override
+   double area() {
+       return width * height;
+   }
+}
+
+class Circle extends Shape {
+   double radius;
+
+   Circle(double radius) {
+       this.radius = radius;
+   }
+
+   @Override
+   double area() {
+       return 3.14 * radius * radius;
+   }
+}
+
+public class Main7 {
+   public static void main(String[] args) {
+       Shape[] shapes = new Shape[2];
+       shapes[0] = new Rectangle(4, 5);
+       shapes[1] = new Circle(3);
+
+       for (Shape s : shapes) {
+           System.out.println("넓이: " + s.area());
+       }
+   }
+}
+------------------------------------------------------------------------------------------------------------------------
+8번. 인터페이스 구현 – 이동 가능한 객체 (10점)
+요구사항
+
+Movable 인터페이스를 작성한다
+메서드: void move(int x, int y)
+ 
+Car 클래스
+Movable을 구현한다
+필드: int x, int y (현재 위치)
+생성자: 초기 위치를 설정하는 생성자
+move(int x, int y) 구현 → x, y 필드를 전달받은 값으로 변경하고 “자동차가 (10, 20) 위치로 이동했습니다”출력
+main 메서드에서
+Movable 타입 변수에 Car 객체를 참조시키고
+move를 한 번 호출하여 결과를 출력하는 코드를 작성하라
+------------------------------------------------------------------------------------------------------------------------
+interface Movable {
+   void move(int x, int y);
+}
+
+class Car implements Movable {
+   int x;
+   int y;
+
+   Car(int x, int y) {
+       this.x = x;
+       this.y = y;
+   }
+
+   @Override
+   public void move(int x, int y) {
+       this.x = x;
+       this.y = y;
+       System.out.println("자동차가 (" + x + ", " + y + ") 위치로 이동했습니다");
+   }
+}
+
+public class Main8 {
+   public static void main(String[] args) {
+       Movable m = new Car(0, 0);
+       m.move(10, 20);
+   }
+}
+ ------------------------------------------------------------------------------------------------------------------------
+9번. 인터페이스와 다형성 – 출력 장치 (10점)
+요구사항
+
+Printable 인터페이스를 작성한다
+메서드: void print(String message)
+ 
+ConsolePrinter 클래스
+Printable 구현
+print 구현 → 매개변수로 전달된 message를 콘솔에 출력한다.
+ 
+FilePrinter 클래스
+Printable 구현
+실제 파일 입출력 대신 “파일에 출력: [메시지]” 형식으로만 콘솔에 출력한다
+ 
+main 메서드에서
+Printable 타입 배열을 길이 2로 만들고
+0번: new ConsolePrinter()
+1번: new FilePrinter()
+반복문으로 "Hello" 문자열을 두 구현체에 모두 출력하게 하라
+-------------------------------------------------------------------------------------------------------------------------
+interface Printable {
+   void print(String message);
+}
+
+class ConsolePrinter implements Printable {
+   @Override
+   public void print(String message) {
+       System.out.println("콘솔 출력: " + message);
+   }
+}
+
+class FilePrinter implements Printable {
+   @Override
+   public void print(String message) {
+       System.out.println("파일에 출력: " + message);
+   }
+}
+
+public class Main9 {
+   public static void main(String[] args) {
+       Printable[] printers = new Printable[2];
+       printers[0] = new ConsolePrinter();
+       printers[1] = new FilePrinter();
+
+       for (Printable p : printers) {
+           p.print("Hello");
+       }
+   }
+}
+ ------------------------------------------------------------------------------------------------------------------------
+10번. 상속 + 오버라이딩 – 은행 계좌 (10점)
+요구사항
+
+BankAccount 클래스를 작성한다
+필드
+- String owner
+- int balance
+생성자
+- 소유자 이름과 초기 잔액을 받는다
+메서드
+void deposit(int amount) → amount만큼 잔액 증가
+void withdraw(int amount) → 잔액이 충분하면 잔액 감소, 부족하면 "잔액 부족" 출력, 잔액은 그대로 유지
+ 
+SavingsAccount 클래스
+BankAccount를 상속
+withdraw 메서드를 오버라이딩하여 출금 시 항상 현재 잔액의 50% 이하만 출금 가능하게 한다(balance / 2)
+50%를 초과하는 금액을 출금 요청하면 "적금 계좌는 한번에 잔액의 50%만 출금 가능합니다" 출력, 잔액은 변경하지 않는다
+ 
+main 메서드에서
+잔액 100000원인 SavingsAccount를 하나 만들고
+30000원 출금 시도, 80000원 출금 하는 메서드를 만들어서 결과를 출력하세요.
+---------------------------------------------------------------------------------------------------------------------------
+class BankAccount {
+   String owner;
+   int balance;
+
+   BankAccount(String owner, int balance) {
+       this.owner = owner;
+       this.balance = balance;
+   }
+
+   void deposit(int amount) {
+       balance += amount;
+       System.out.println(amount + "원 입금, 현재 잔액: " + balance);
+   }
+
+   void withdraw(int amount) {
+       if (balance >= amount) {
+           balance -= amount;
+           System.out.println(amount + "원 출금, 현재 잔액: " + balance);
+       } else {
+           System.out.println("잔액 부족");
+       }
+   }
+}
+
+class SavingsAccount extends BankAccount {
+
+   SavingsAccount(String owner, int balance) {
+       super(owner, balance);
+   }
+
+   @Override
+   void withdraw(int amount) {
+       int max = balance / 2;
+       if (amount > max) {
+           System.out.println("적금 계좌는 한번에 잔액의 50%만 출금 가능합니다");
+           return;
+       }
+       super.withdraw(amount);
+   }
+}
+
+public class Main10 {
+   public static void main(String[] args) {
+       SavingsAccount acc = new SavingsAccount("홍길동", 100000);
+       acc.withdraw(30000);
+       System.out.println("현재 잔액: " + acc.balance);
+       acc.withdraw(80000);
+       System.out.println("현재 잔액: " + acc.balance);
+   }
+}

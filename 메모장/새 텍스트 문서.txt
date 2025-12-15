@@ -1,0 +1,21 @@
+@ManyToOne n:1   n측 엔티티가 1측 엔티티를 참조
+@OneToMany 1:n   1측 엔티티가 N측 엔티티를 참조
+@OneToOne 1:1 
+@ManyToMany n:m
+
+Member 하나의 맴버가 여러팀을 가지지는 못하니 n
+id
+userName
+
+@ManyToOne
+Team team 필드로 지정
+
+Team 하나의팀은 여러사람을 가진다 1
+long id
+String name
+
+하나의 팀이 여러 맴버를 가질수 있으니
+팀에 속한 여러 맴버들을 표현하기위해 리스트에 담아
+즉 List는 팀인거고 거기에 Member를 담는거지
+@OneToMany
+private List <Member> member =new ArrayList();

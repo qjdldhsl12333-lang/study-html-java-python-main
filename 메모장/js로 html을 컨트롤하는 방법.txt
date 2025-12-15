@@ -1,0 +1,24 @@
+js로 HTML을 컨트롤 하는 방법
+
+1. HTML 태그를 js에 등록
+- document.getElementById()
+- document.querySelector()
+메서드를 통해서 태그를 불러오고 변수에 저장을 한다!!
+(변수명을 태그의 역할에 맞게 지어주세요)
+
+2. 발생되는 이벤트의 종류
+이벤트가 뭔데?
+사용자와 브라우저 사이에서 발생하는 모든 상호작용
+- 클릭 "click"
+- 더블클릭 "dblclick"
+- 마우스 올리기(내리기) "mouseup", "mousedown"
+- 우클릭 "contextmenu"
+- 입력
+- 수정
+- 입력하고 입력창을 눌렀을 때(focus)
+- blur
+- change
+
+3. 이벤트가 발생했을 때 처리
+
+이벤트가 발생 할 것 같은 대상 태그.addEventListener("이벤트의 종류", 처리);

@@ -1,0 +1,61 @@
+다시 공부해야할것들 
+
+Springboot흐름에 대해 정의
+
+DTO -> Entity 로 변환하기
+DTO에 들어가는 어노테이션
+
+Response도 마찬가지
+
+어떤 어노테이션이 들어 가고 사용법을 정의
+
+===================================
+Controller 
+일단 필드 주입도 안했음
+@RequestBody 문법을 쓸줄모르니 쓸수가없음 
+@PathVariable도 이상하게 씀 매개변수 뒤에 와야함
+
+@RequestMapping 해당 어노테이션의 기능
+|@Target(value={TYPE, METHOD})
+|@Mapping
+|@Reflective(value={ControllerMappingReflectiveProcessor.class})
+|@Retention(value=RUNTIME)
+|@Documented
+
+@RestController 해당 어노테이션의 기능
+|@Target(value={TYPE})
+|@Controller
+|@ResponseBody
+|@Retention(value=RUNTIME)
+|@Documented
+
+
+생성자 주입도 안했음
+@RequiredArgsConstructor
+생성자 주입할때 
+서비스에서 가져와야함 
+=========================================
+
+
+CRUD의 구조와 사용법 
+create
+retrieve
+update
+delete
+
+
+=========================================
+service구현 처음부터 다시
+
+Repository도 완벽하지 않음 
+
+=============================================
+Entity는 적어도 생성 가능 하지만 불안함
+generatedValue 다시 볼것
+마찬가지 생성자주입도 못함
+entity
+
+
+
+
+
